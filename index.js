@@ -29,6 +29,10 @@ io.on('connection', function(socket){
 		io.emit('member_exit', { from, user, counter });
 	});
 
+	socket.on('confetti_thrown', function(msg){
+		io.emit('confetti_received', { user, from });
+	});
+
 	io.emit('new_member', { from, user, counter });
 });
 
